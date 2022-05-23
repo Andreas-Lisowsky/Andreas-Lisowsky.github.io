@@ -1,13 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit"
+import {createSlice} from "@reduxjs/toolkit"
 
 export const lastEntrySlice = createSlice({
     name: 'lastEntry',
     initialState: {
-        name: '',
-        job: '',
+        name: 'PlaceholderName',
+        job: 'PlaceholderJob',
     },
     reducers: {
-        changeLastEntry: (state) => {
+        changeLastEntry: (state, action) => {
             state.name = action.payload.name
             state.job = action.payload.job
         },
@@ -16,4 +16,4 @@ export const lastEntrySlice = createSlice({
 
 export const {changeLastEntry} = lastEntrySlice.actions
 
-export default counterSlice.reducer
+export default lastEntrySlice.reducer

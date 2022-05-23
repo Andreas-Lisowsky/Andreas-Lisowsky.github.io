@@ -1,11 +1,10 @@
-import React, {Component} from 'react'
-import {useSelector, useDispatch} from 'react-redux'
-import {changeLastEntry} from './counterSlice'
+import {Component} from 'react'
+import {connect} from 'react-redux'
+
 import Table from './Table'
 import Form from './Form'
 import LastEntry from './LastEntry'
-
-
+import {changeLastEntry} from "./lastEntrySlice"
 
 class App extends Component {
     state = {
@@ -25,8 +24,7 @@ class App extends Component {
     handleSubmit = (character) => {
         this.setState({characters: [...this.state.characters, character]})
 
-        const name = useSelector((state) => state.LastEntry.name)
-        dispatch(changeLastEntry())
+        this.props.dispatch(changeLastEntry({name: character.name, job: character.job}))
     }
 
     render() {
@@ -56,4 +54,4 @@ class App extends Component {
     }
 }
 
-export default App
+export default connect()(App)

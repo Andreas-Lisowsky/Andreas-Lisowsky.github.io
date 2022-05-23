@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import {Component} from 'react'
 
 class Form extends Component {
   initialState = {
@@ -18,6 +18,7 @@ class Form extends Component {
 
   submitForm = () => {
     this.props.handleSubmit(this.state)
+
     this.setState(this.initialState)
   }
 

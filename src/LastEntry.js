@@ -1,28 +1,31 @@
-import React, {Component} from 'react'
+import {useSelector} from 'react-redux'
 
 const LastEntryHeader = () => {
     return (
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Job</th>
+                <th>LastEntryName</th>
+                <th>LastEntryJob</th>
             </tr>
         </thead>
     )
 }
 
 const LastEntryBody = (props) => {
+    const name = useSelector((state) => state.lastEntry.name)
+    const job = useSelector((state) => state.lastEntry.job)
+
     return (
-    <tr>
-        <td>Placeholder</td>
-        <td>Placeholder</td>
-    </tr>
+        <tbody>
+            <tr>
+                <td>{name}</td>
+                <td>{job}</td>
+            </tr>
+        </tbody>
     )
 }
 
 const LastEntry = (props) => {
-    const {characterData, removeCharacter} = props;
-
     return (
         <div>
             <h4>Last Entry</h4>
